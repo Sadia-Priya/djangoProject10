@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>This is home page</h1>
+<a href="{% url 'create-account' %}"><button>Add Account</button></a><br>
+{%  for i in bankaccounts %}
+    <h1>Owner: {{ i.owner }}</h1>
+    <p>Phone: {{ i.phone }}</p>
+    <p>Balance: {{ i.balance }}</p>
+    <p>Address: {{ i.address }}</p><br>
+    <a href="{% url 'update-account' i.id%}"><button>Update</button></a>
+    <a href="{% url 'delete-account' i.id %}"><button>Delete</button></a>
+    
+    
+{% endfor %}
+</body>
+</html>
